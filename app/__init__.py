@@ -16,6 +16,25 @@ def index():
 # Test route to see if my template is rendering as expected
 @app.route("/template")
 def template():
+
+    # **Shape of Data**
+    #
+    # experiences = [{
+    #    "name": string,
+    #    "role": string,
+    #    "date": string
+    # }, ...]
+    #
+    # hobbies = [{
+    #    "name": string,
+    #    "img": string
+    # }, ...]
+    #
+    # education = [{
+    #    "name": string,
+    #    "location": string
+    # }, ...]
+
     return render_template(
         "main.jinja",
         title="Super Fellow!",

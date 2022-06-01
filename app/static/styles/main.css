@@ -95,3 +95,32 @@ body {
     font-size: 50px;
     font-weight: 700;
 }
+
+/* */
+.container {
+    margin-left: 10px; 
+    margin-right: 10px;
+    text-align: center;
+}
+
+.lr-border  {
+    border-left: 5px solid gray;
+    border-right: 5px solid gray;
+    list-style-type: none;
+    padding: 1px;
+}
+
+#timeline {
+    border-image: linear-gradient(red, green, blue ) 1;
+}
+#hobbies {
+    border-image: linear-gradient(green, blue, red ) 1;
+}
+
+#educations {
+    border-image: linear-gradient(green, blue, red ) 1;
+}
+
+h1, h3, #tl-entry-subheading, #ed-entry-subheading {
+    margin: 0px;
+}

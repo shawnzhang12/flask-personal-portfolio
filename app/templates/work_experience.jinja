@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Work Experiences</h1>
+    <ol id="timeline" class="lr-border">
+    {% for experience in experiences %}
+        <li>
+            <div id="tl-entry-container">
+                <h3 id="tl-entry-heading">{{experience.name}}</h3>
+                <p id="tl-entry-subheading"><em id="tl-entry-role"> {{experience.role}}</em><br/>   
+                <small id="tl-entry-date">{{experience.date}}</small></p>
+                <p id="tl-entry-desc">{{ lipsum(1) }}</p>
+            </div>
+        </li>
+    {% endfor %}
+    <ol>
+</div>

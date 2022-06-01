@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Education</h1>
+    <ol id="educations" class="lr-border">
+        {% for education in educations %}
+            <li>
+                <div id="ed-entry-container">
+                    <h3 id="ed-entry-heading">{{education.name}}</h3>
+                    <p id="ed-entry-subheading">{{education.location}}</p>
+                    <p id="ed-entry-desc">{{ lipsum(1) }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+</div>

@@ -38,23 +38,19 @@ def template():
     return render_template(
         "main.jinja",
         title="Super Fellow!",
-        experiences=[
-            {
-                "name": "Meta",
-                "role": "Production Engineer",
-                "date": "XX 2021 - XX 2022"
-            },
-            {
-                "name": "Google",
-                "role": "Software Engineer",
-                "date": "XX 2020 - XX 2021"
-            },
-            {
-                "name": "Amazon",
-                "role": "Systems Development Engineer",
-                "date": "XX 2019 - XX 2020"
-            },
-        ],
+        experiences=[{
+            "name": "Google",
+            "role": "Software Engineer",
+            "date": "XX 2021 - XX 2022"
+        }, {
+            "name": "Amazon",
+            "role": "Systems Development Engineer",
+            "date": "XX 2018 - XX 2019"
+        }, {
+            "name": "Meta",
+            "role": "Production Engineer",
+            "date": "XX 2017 - XX 2018"
+        }],
         hobbies=[
             {
                 "name":

@@ -15,7 +15,7 @@ def index():
 
 # Test route to see if my template is rendering as expected
 @app.route("/template")
-def test():
+def template():
     return render_template(
         "main.jinja",
         title="Super Fellow!",

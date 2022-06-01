@@ -57,16 +57,12 @@ def template():
         ],
         hobbies=[
             {
-                "name":
-                "League of Legends",
-                "img":
-                "https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_LeagueofLegends_RiotGames_S1_2560x1440-ee500721c06da3ec1e5535a88588c77f"
+                "name": "League of Legends",
+                "img": "https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_LeagueofLegends_RiotGames_S1_2560x1440-ee500721c06da3ec1e5535a88588c77f"
             },
             {
-                "name":
-                "Valorant",
-                "img":
-                "https://cdn.dribbble.com/users/2348/screenshots/10696082/media/4a24583ea649f9df1415775a37c84ae5.png?compress=1&resize=1200x900&vertical=top"
+                "name": "Valorant",
+                "img": "https://cdn.dribbble.com/users/2348/screenshots/10696082/media/4a24583ea649f9df1415775a37c84ae5.png?compress=1&resize=1200x900&vertical=top"
             },
         ],
         educations=[{

@@ -1,12 +1,12 @@
 <div class="_container">
-    <h1>Education</h1>
+    <h1 class="no-margin rainbow-text-animated">Education</h1>
     <ol id="educations" class="lr-border">
         {% for education in educations %}
             <li>
-                <div id="ed-entry-container">
-                    <h3 id="ed-entry-heading">{{education.name}}</h3>
-                    <p id="ed-entry-subheading">{{education.location}}</p>
-                    <p id="ed-entry-desc">{{ lipsum(1) }}</p>
+                <div class="no-margin">
+                    <h3 class="no-margin">{{education.name}}</h3>
+                    <p class="no-margin">{{education.location}}</p>
+                    <p class="entry-desc">{{ lipsum(1, False) }}</p>
                 </div>
             </li>
         {% endfor %}

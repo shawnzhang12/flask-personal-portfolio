@@ -51,11 +51,11 @@ def index():
         hobbies=[
             {
                 "name": "Gaming",
-                "img": "./static/img/game.jpg"
+                "img": "./img/game.jpg"
             },
             {
                 "name": "Working Out",
-                "img": "./static/img/gym.jpg"
+                "img": "./img/gym.jpg"
             },
         ],
         educations=[{

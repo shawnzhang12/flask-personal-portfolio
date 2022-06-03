@@ -8,16 +8,8 @@ load_dotenv()
 app = Flask(__name__,)
 GoogleMaps(app, key=config.maps_api_key)
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html',
-                           title="MLH Fellow",
-                           url=os.getenv("URL"))
-
-
-# Test route to see if my template is rendering as expected
-@app.route("/template")
-def template():
 
     # **Shape of Data**
     #
@@ -39,7 +31,8 @@ def template():
 
     return render_template(
         "main.jinja",
-        title="Super Fellow!",
+        title="Bobo the Baboon",
+        url=os.getenv("URL"),
         experiences=[
             {
                 "name": "Meta",
@@ -59,12 +52,12 @@ def template():
         ],
         hobbies=[
             {
-                "name": "League of Legends",
-                "img": "https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_LeagueofLegends_RiotGames_S1_2560x1440-ee500721c06da3ec1e5535a88588c77f"
+                "name": "Gaming",
+                "img": "./img/game.jpg"
             },
             {
-                "name": "Valorant",
-                "img": "https://cdn.dribbble.com/users/2348/screenshots/10696082/media/4a24583ea649f9df1415775a37c84ae5.png?compress=1&resize=1200x900&vertical=top"
+                "name": "Working Out",
+                "img": "./img/gym.jpg"
             },
         ],
         educations=[{
@@ -129,5 +122,3 @@ def hobbies_and_map():
         ]
 
     return render_template('hobbies_and_map.jinja', title=title, hobbies=hobbies, trdmap=bobomap, url=os.getenv("URL"))
-
-    

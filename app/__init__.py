@@ -1,10 +1,11 @@
 import os
 from flask import Flask, render_template, request
+from flask_googlemaps import GoogleMaps, Map
 from dotenv import load_dotenv
 
 load_dotenv()
-app = Flask(__name__)
-
+app = Flask(__name__,)
+GoogleMaps(app, key="AIzaSyB2UAPEAYkrGCuUN5aWu9UEJBYKEqGZuwI")
 
 @app.route('/')
 def index():
@@ -75,3 +76,69 @@ def template():
             "name": "Stanford University",
             "location": "Stanford, CA"
         }])
+
+@app.route("/hobbies/")
+def mapview():
+    # creating a map in the view
+    mymap = Map(
+        identifier="view-side",
+        lat=37.4419,
+        lng=-122.1419,
+        markers=[(37.4419, -122.1419)]
+    )
+    sndmap = Map(
+        identifier="sndmap",
+        lat=37.4419,
+        lng=-122.1419,
+        markers=[
+          {
+             'icon': 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+             'lat': 37.4419,
+             'lng': -122.1419,
+             'infobox': "<b>Hello World</b>"
+          },
+          {
+             'icon': 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+             'lat': 37.4300,
+             'lng': -122.1400,
+             'infobox': "<b>Hello World from other place</b>"
+          }
+        ]
+    )
+
+    bobomap = Map(
+        identifier="bobomap",
+        lat=9.1304,
+        lng=41.2809,
+        markers=[
+            {
+                'icon': 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+                'lat': 9.1304,
+                'lng': 41.2809,
+                'infobox': '<img src="https://cdn3.iconfinder.com/data/icons/142-mini-country-flags-16x16px/32/flag-denmark2x.png" width=32px height=32px/>',
+            },
+            {
+                'icon': 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+                'lat': 23.6345,
+                'lng': -102.5528,
+                'infobox': '<img src="https://cdn3.iconfinder.com/data/icons/142-mini-country-flags-16x16px/32/flag-mexico2x.png" width=32px height=32px/>'
+            },  
+            {
+                'icon': 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                'lat': 15.8700,
+                'lng': 100.9925,
+                'infobox': '<img src= "https://cdn3.iconfinder.com/data/icons/142-mini-country-flags-16x16px/32/flag-thailand2x.png" width=32px height=32px/>'
+            },
+            {
+                'icon': 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                'lat': 64.9631,
+                'lng': -19.0208,
+                'infobox': '<img src= "https://cdn3.iconfinder.com/data/icons/142-mini-country-flags-16x16px/32/flag-iceland2x.png" width=32px height=32px/>'
+            }    
+        ],
+        style="height:600px;width:1200px;margin:",
+        zoom=2
+    )
+    return render_template('hobbies_and_map.html', trdmap=bobomap)
+
+    

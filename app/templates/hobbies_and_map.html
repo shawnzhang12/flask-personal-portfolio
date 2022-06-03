@@ -7,8 +7,8 @@
        name="viewport"
        content="width=device-width, initial-scale=1, shrink-to-fit=no"
      />
-     <meta property="og:title" content="Personal Portfolio" />
-     <meta property="og:description" content="My Personal Portfolio" />
+     <meta property="og:title" content="Personal Portfolio Hobbies" />
+     <meta property="og:description" content="My Personal Portfolio Hobbies" />
      <meta property="og:url" content="{{ url }}" />
  
      <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -16,17 +16,58 @@
        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
        rel="stylesheet"
      />
-     <link lang="sass" rel="stylesheet" href="./static/styles/main.css" />
-     <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
-     <title>{{ title }}</title>
-    {{"decoupled-map"|googlemap_js(37.4419, -122.1419, markers=[(37.4419,
-    -122.1419)])}} {{trdmap.js}}
+     <link lang="sass" rel="stylesheet" href="../static/styles/main.css" />
+     <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon" />
+     <title> {{ title }} </title>
+    {{trdmap.js}}
   </head>
+
   <body>
-      <h2>The one and only</h2>
-      <h3>bobo adventures</h3>   
+  <header class="nav-bar">
+    <div class="nav-content">
+      <a href="/hobbies/">
+        <div class="nav-logo">
+          <img src="../static/img/logo.svg" />
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <div class="profile">
+    <div id="profile-picture" class="profile-picture">
+      <img src="../static/img/bobo.jpg" />
+    </div>
+    <h1>{{ title }}</h1>
+  </div>
+
+  
     <div class="_container">
-      {{trdmap.html}}  
-    </div>  
+        <h1>Hobbies</h1>
+        <ol id="hobbies" class="lr-border">
+            <li>
+                <div id="hb-entry-container">
+                    <h3 id="hb-entry-heading">League of Legends</h3>
+                    <img id="hb-entry-image" src="https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_LeagueofLegends_RiotGames_S1_2560x1440-ee500721c06da3ec1e5535a88588c77f" width=480px height=170px alt="League of Legends"/>
+                    <p id="hb-entry-desc">{{ lipsum(1) }}</p>
+                </div>
+            </li>		
+            <li>
+                <div id="hb-entry-container">
+                    <h3 id="hb-entry-heading">Valorant</h3>
+                    <img id="hb-entry-image" src="https://cdn.dribbble.com/users/2348/screenshots/10696082/media/4a24583ea649f9df1415775a37c84ae5.png?compress=1&resize=1200x900&vertical=top" width=480px height=170px alt="Valorant"/>
+                    <p id="hb-entry-desc">{{ lipsum(1) }}</p>
+                </div>
+            </li>
+            <li>
+                <div id="hb-entry-container">
+                    <h3 id="hb-entry-heading">Traveling!</h3>
+                    <p id="hb-entry-desc">Check out the map for the cool places Bobo has been to.</p>
+                </div>
+                <div class="_container">
+                    {{trdmap.html}}  
+                </div> 
+            </li>
+        </ol>
+    </div> 
   </body>
 </html>

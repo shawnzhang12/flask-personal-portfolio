@@ -78,33 +78,9 @@ def template():
         }])
 
 @app.route("/hobbies/")
-def mapview():
+def hobbies_and_map():
     # creating a map in the view
-    mymap = Map(
-        identifier="view-side",
-        lat=37.4419,
-        lng=-122.1419,
-        markers=[(37.4419, -122.1419)]
-    )
-    sndmap = Map(
-        identifier="sndmap",
-        lat=37.4419,
-        lng=-122.1419,
-        markers=[
-          {
-             'icon': 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-             'lat': 37.4419,
-             'lng': -122.1419,
-             'infobox': "<b>Hello World</b>"
-          },
-          {
-             'icon': 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-             'lat': 37.4300,
-             'lng': -122.1400,
-             'infobox': "<b>Hello World from other place</b>"
-          }
-        ]
-    )
+    title = "Bobo's Hobbies"
 
     bobomap = Map(
         identifier="bobomap",
@@ -136,9 +112,11 @@ def mapview():
                 'infobox': '<img src= "https://cdn3.iconfinder.com/data/icons/142-mini-country-flags-16x16px/32/flag-iceland2x.png" width=32px height=32px/>'
             }    
         ],
-        style="height:600px;width:1200px;margin:",
+        style="height:600px;width:1200px;margin:auto",
         zoom=2
     )
-    return render_template('hobbies_and_map.html', trdmap=bobomap)
+    
+
+    return render_template('hobbies_and_map.html', title=title, trdmap=bobomap, url=os.getenv("URL"))
 
     

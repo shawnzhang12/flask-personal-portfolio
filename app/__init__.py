@@ -4,8 +4,9 @@ from flask_googlemaps import GoogleMaps, Map
 from dotenv import load_dotenv
 
 load_dotenv()
-app = Flask(__name__,)
+app = Flask(__name__, )
 GoogleMaps(app, key=os.getenv("MAPS_API_KEY"))
+
 
 @app.route("/")
 def index():
@@ -28,47 +29,37 @@ def index():
     #    "location": string
     # }, ...]
 
-    return render_template(
-        "main.jinja",
-        title="Bobo the Baboon",
-        url=os.getenv("URL"),
-        experiences=[
-            {
-                "name": "Meta",
-                "role": "Production Engineer",
-                "date": "XX 2021 - XX 2022"
-            },
-            {
-                "name": "Google",
-                "role": "Software Engineer",
-                "date": "XX 2020 - XX 2021"
-            },
-            {
-                "name": "Amazon",
-                "role": "Systems Development Engineer",
-                "date": "XX 2019 - XX 2020"
-            },
-        ],
-        hobbies=[
-            {
-                "name": "Gaming",
-                "img": "./img/game.jpg"
-            },
-            {
-                "name": "Working Out",
-                "img": "./img/gym.jpg"
-            },
-        ],
-        educations=[{
-            "name": "Yale University",
-            "location": "New Haven, CT"
-        }, {
-            "name": "Harvard University",
-            "location": "Cambridge, MA"
-        }, {
-            "name": "Stanford University",
-            "location": "Stanford, CA"
-        }])
+    return render_template("main.jinja",
+                           title="Bobo the Baboon",
+                           url=os.getenv("URL"),
+                           experiences=[
+                               {
+                                   "name": "Meta",
+                                   "role": "Production Engineer",
+                                   "date": "XX 2021 - XX 2022"
+                               },
+                               {
+                                   "name": "Google",
+                                   "role": "Software Engineer",
+                                   "date": "XX 2020 - XX 2021"
+                               },
+                               {
+                                   "name": "Amazon",
+                                   "role": "Systems Development Engineer",
+                                   "date": "XX 2019 - XX 2020"
+                               },
+                           ],
+                           educations=[{
+                               "name": "Yale University",
+                               "location": "New Haven, CT"
+                           }, {
+                               "name": "Harvard University",
+                               "location": "Cambridge, MA"
+                           }, {
+                               "name": "Stanford University",
+                               "location": "Stanford, CA"
+                           }])
+
 
 @app.route("/hobbies/")
 def hobbies_and_map():
@@ -106,18 +97,21 @@ def hobbies_and_map():
             }    
         ],
         style="height:600px;width:1200px;margin:auto",
-        zoom=2
-    )
+        zoom=2)
 
-    hobbies=[
-            {
-                "name": "League of Legends",
-                "img": "https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_LeagueofLegends_RiotGames_S1_2560x1440-ee500721c06da3ec1e5535a88588c77f"
-            },
-            {
-                "name": "Valorant",
-                "img": "https://cdn.dribbble.com/users/2348/screenshots/10696082/media/4a24583ea649f9df1415775a37c84ae5.png?compress=1&resize=1200x900&vertical=top"
-            },
-        ]
+    hobbies = [
+        {
+            "name": "Gaming",
+            "img": "./img/game.jpg"
+        },
+        {
+            "name": "Working Out",
+            "img": "./img/gym.jpg"
+        },
+    ]
 
-    return render_template('hobbies_and_map.jinja', title=title, hobbies=hobbies, trdmap=bobomap, url=os.getenv("URL"))
+    return render_template('hobbies_and_map.jinja',
+                           title=title,
+                           hobbies=hobbies,
+                           trdmap=bobomap,
+                           url=os.getenv("URL"))

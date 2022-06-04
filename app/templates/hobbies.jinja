@@ -1,12 +1,12 @@
 <div class="_container">
-    <h1>Hobbies</h1>
+    <h1 class="no-margin rainbow-text-animated">Hobbies</h1>
     <ol id="hobbies" class="lr-border">
         {% for hobby in hobbies %}
             <li>
-                <div id="hb-entry-container">
-                    <h3 id="hb-entry-heading">{{hobby.name}}</h3>
-                    <img id="hb-entry-image" src={{hobby.img}} width=480px height=170px alt={{hobby.name}}/>
-                    <p id="hb-entry-desc">{{ lipsum(1) }}</p>
+                <div class="no-margin">
+                    <h3 class="no-margin">{{hobby.name}}</h3>
+                    <img class="no-margin" src={{ url_for("static", filename=hobby.img)}} width=480px height=300px alt={{hobby.name}}/>
+                    <p class="entry-desc">{{ lipsum(1, False) }}</p>
                 </div>
             </li>
         {% endfor %}

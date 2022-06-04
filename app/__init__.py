@@ -1,12 +1,11 @@
 import os
-from .config import *
 from flask import Flask, render_template, request
 from flask_googlemaps import GoogleMaps, Map
 from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__,)
-GoogleMaps(app, key=config.maps_api_key)
+GoogleMaps(app, key=os.getenv("MAPS_API_KEY"))
 
 @app.route('/')
 def index():

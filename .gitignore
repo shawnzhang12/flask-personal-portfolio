@@ -3,6 +3,5 @@ __pycache__
 *.pyc
 .env
 python3-virtualenv
-**/config.py
 flask.sqlite
 .DS_Store

@@ -42,11 +42,27 @@ body {
 }
 
 .nav-content nav {
-    display: block;
+    display: flex;
     width: 100%;
-    text-align: right;
+    text-align: center;
     padding-top: 0px;
     padding-right: 0px;
+}
+
+.nav-content{
+    text-align: center;
+    font-size: 100%;
+}
+
+.nav-content a{
+    text-decoration: none;
+    color:orange;
+}
+
+#links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .profile {

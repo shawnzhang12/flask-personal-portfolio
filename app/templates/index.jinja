@@ -25,17 +25,21 @@
   <body>
     <header class="nav-bar">
       <div class="nav-content">
-        <a href="/">
+        <a href="{{ url_for('index') }}">
           <div class="nav-logo">
             <img src="./static/img/logo.svg" />
           </div>
-        </a>
+        Home </a>
+      </div>
+      <div class="nav-content">
+        <a href="{{ url_for('hobbies_and_map') }}">
+        Hobbies </a>
       </div>
     </header>
 
     <div class="profile">
       <div id="profile-picture" class="profile-picture">
-        <img src="./static/img/logo.jpg" />
+        <img src="./static/img/bobo.jpg" />
       </div>
       <h1>{{ title }}</h1>
     </div>

@@ -7,7 +7,6 @@ load_dotenv()
 app = Flask(__name__, )
 GoogleMaps(app, key=os.getenv("MAPS_API_KEY"))
 
-
 @app.route("/")
 def index():
 
@@ -114,4 +113,5 @@ def hobbies_and_map():
                            title=title,
                            hobbies=hobbies,
                            trdmap=bobomap,
+                           name= "Bobo", 
                            url=os.getenv("URL"))

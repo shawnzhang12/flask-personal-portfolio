@@ -53,6 +53,7 @@ pip install -r requirements.txt
 ## Usage
 
 Create a .env file using the example.env template (make a copy using the variables inside of the template)
+There should be a variable in that .env such that MAPS_API_KEY="YOUR_API_KEY"
 
 Start flask development server
 ```bash

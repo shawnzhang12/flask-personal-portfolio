@@ -128,3 +128,8 @@ def hobbies_and_map():
                            trdmap=bobomap,
                            hobbies=hobbies,
                            url=os.getenv("URL"))
+
+@app.route("/animation/")
+def animation():
+    return render_template('animation.html',
+                           url=os.getenv("URL"))

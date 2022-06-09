@@ -10,25 +10,6 @@ GoogleMaps(app, key=os.getenv("MAPS_API_KEY"))
 
 @app.route("/")
 def index():
-
-    # **Shape of Data**
-    #
-    # experiences = [{
-    #    "name": string,
-    #    "role": string,
-    #    "date": string
-    # }, ...]
-    #
-    # hobbies = [{
-    #    "name": string,
-    #    "img": string
-    # }, ...]
-    #
-    # education = [{
-    #    "name": string,
-    #    "location": string
-    # }, ...]
-
     return render_template("main.jinja",
                            title="Bobo the Baboon",
                            name="Bobo",
@@ -63,11 +44,10 @@ def index():
                            }])
 
 
-@app.route("/hobbies")
+@app.route("/hobbies/")
 def hobbies_and_map():
     # creating a map in the view
     title = "Bobo's Hobbies"
-
     bobomap = Map(
         identifier="bobomap",
         lat=9.1304,
@@ -131,5 +111,6 @@ def hobbies_and_map():
 
 @app.route("/animation/")
 def animation():
-    return render_template('animation.html',
+    title="Nebula Animation"
+    return render_template('animation.html', title=title,
                            url=os.getenv("URL"))

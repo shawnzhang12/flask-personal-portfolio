@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% block head %}
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -16,30 +17,37 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-
-    <link lang="sass" rel="stylesheet" href="./static/styles/main.css" />
-    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
+    <link lang="sass" rel="stylesheet" href="{{ url_for('static', filename='/styles/main.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='/img/favicon.ico') }}" type="image/x-icon" />
     <title>{{ title }}</title>
+  {% endblock head %}
+  {% block extra_head %}
+  {% endblock extra_head %}
   </head>
 
   <body>
     <header class="nav-bar">
       <div class="nav-content">
           <div class="nav-logo">
-            <img src="./static/img/logo.svg" />
+            <img src="{{ url_for('static', filename='/img/logo.svg') }}" />
           </div>
           <div class="links">
             <a id="link1" href="{{ url_for('index') }}"> Home </a>
             <a id="link2" href="{{ url_for('hobbies_and_map') }}"> Hobbies </a>
+            <a id="link3" href="{{ url_for('animation') }}"> Animation </a>
           </div>
       </div>
     </header>
 
     <div class="profile">
       <div id="profile-picture" class="profile-picture">
-        <img src="./static/img/bobo.jpg" />
+        <img src="{{ url_for('static', filename='/img/bobo.jpg') }}" />
       </div>
       <h1>{{ title }}</h1>
     </div>
+
+  {% block content %}
+  {% endblock content %}
   </body>
 </html>
+

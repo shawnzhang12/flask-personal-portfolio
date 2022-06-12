@@ -10,7 +10,7 @@ GoogleMaps(app, key=os.getenv("MAPS_API_KEY"))
 
 @app.route("/")
 def index():
-    return render_template("main.jinja",
+    return render_template("main.j2",
                            title="Bobo the Baboon",
                            name="Bobo",
                            hobbies="Working out and Gaming",
@@ -103,7 +103,7 @@ def hobbies_and_map():
         },
     ]
 
-    return render_template('hobbies_and_map.jinja',
+    return render_template('hobbies_and_map.j2',
                            title=title,
                            trdmap=bobomap,
                            hobbies=hobbies,

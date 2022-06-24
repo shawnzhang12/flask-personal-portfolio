@@ -19,7 +19,7 @@
 <body>
     <nav>
         <div class="logo">
-            <h4>THE NAV</h4>
+            <h4>Shawn Zhang's Portfolio</h4>
         </div>
         <ul class="nav-links">
             <li>
@@ -31,6 +31,9 @@
             <li>
                 <a href="{{ url_for('animation') }}">Animation</a>
             </li>
+            <li>
+                <a href="{{ url_for('timeline') }}">Timeline</a>
+            </li>
         </ul> 
         <div class="burger">
             <div class="line1"></div>
@@ -39,10 +42,14 @@
         </div>
     </nav>
 
-    <script src="{{ url_for("static", filename="nav.js")}}"></script>
-
     {% block content %}
     {% endblock content %}
+
+    <script src="{{ url_for("static", filename="nav.js")}}"></script>
+
+    {% block script %}
+    {% endblock script %}
+    
 </body>
 
 </html>

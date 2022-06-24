@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+filler{
+    display: flex;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    min-height: 10vh;
+    background-color: white;
+    opacity: 0;
+}
+
 nav{
     display: flex;
     position: fixed;
@@ -19,11 +29,22 @@ nav{
 }
 
 .logo{
-    color: rgb(226, 226, 226);
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 20px;
+    font-size: 25px;
+    opacity: 1;
 }
+
+.logo h4 {
+    background: -webkit-linear-gradient(left, green,orange);
+    background-repeat: repeat-x;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    animation-name: colorchange;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
 
 .nav-links{
     display: flex;
@@ -117,3 +138,12 @@ nav{
 .toggle .line3{
     transform: rotate(45deg) translate(-5px,-6px);
 }
+
+@keyframes colorchange {
+    0% {
+      background-position: right 0px bottom 0px;
+    }
+    100% {
+      background-position: right 10em bottom 0px;
+    }
+  }

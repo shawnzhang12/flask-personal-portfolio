@@ -1,0 +1,64 @@
+{% extends "index.j2" %}
+
+
+{% block content %}
+<div>
+
+</div>
+<div id="parent">
+    <form id="form_login" action="{{ url_for('post_time_line_post') }}" method="post", onsubmit="submit_entry(event,this)">
+        <div class="form">
+            <label for="name">First name:</label>
+            <input type="text" id="name" name="name" size="25"><br>    
+        </div>
+        <div class="form">
+            <label for="email">Email:</label>
+            <input type="text" id ="email" name="email" size="25"><br>    
+        </div>
+        <div class="form">
+            <label for="content">Comment:</label>
+            <textarea id ="content" name="content" rows="5" cols="24"></textarea><br>    
+        </div>
+        <input type="submit">
+    </form>
+</div>
+
+<div class="_container"><p id="response"></p></div> 
+</div>
+
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    function submit_entry(e,form) {
+        console.log(form)
+        fetch(form.action, {method:'post', body: new FormData(form)})
+        .then(() => {
+            window.location.reload();
+        });  
+        e.preventDefault();
+    }
+
+    let response = fetch("/api/timeline_post")
+        .then((response) => response.json())
+        .then((response) => {
+            posts = response.timeline_posts;
+            list = document.querySelector("#response");
+            posts.forEach(function (post) {
+                let h5 = document.createElement("h5");
+                let p = document.createElement("p");
+                let date = document.createElement("h6")
+                h5.setAttribute('style', 'white-space: pre;');
+                h5.textContent=`Name: ${post.name} \r\n Email: ${post.email}`;
+                date.textContent=`Date Created: ${post.created_at}`
+                p.textContent=`Content: ${post.content}`;
+                list.appendChild(h5);
+                list.appendChild(date);
+                list.appendChild(p);
+                list.appendChild(document.createElement("br"));
+            });
+        })
+</script>
+    
+{% endblock script %}

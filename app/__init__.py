@@ -1,6 +1,6 @@
 import os
 import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, jsonify, make_response
 from flask_googlemaps import GoogleMaps, Map
 from dotenv import load_dotenv
 from peewee import *
@@ -137,6 +137,7 @@ def animation():
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
+    print(request.form)
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
@@ -153,3 +154,22 @@ def get_time_line_post():
             TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+
+@app.route('/api/timeline_post', methods=['DELETE'])
+def delete_time_line_post():
+    return {
+        'timeline_posts': [
+            model_to_dict(p)
+            for p in 
+            TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', 
+    title="Timeline", 
+    url=os.getenv("URL"))
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)

@@ -35,5 +35,5 @@ services:
 
 volumes:
   mydatabase:
-  nignx_secrets:
+  nginx_secrets:
 

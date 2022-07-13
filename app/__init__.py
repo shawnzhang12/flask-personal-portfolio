@@ -143,6 +143,16 @@ def animation():
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     print(request.form)
+
+    if 'name' not in request.form or 'name' = "":
+        return "Invalid name", 400
+
+    if 'email' not in request.form or 'email' == "" or '@' not in request.form['email']:
+        return "Invalid email", 400
+
+    if 'content' not in request.form or 'content' == "":
+        return "Empty content", 400
+
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']

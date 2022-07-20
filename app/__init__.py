@@ -36,43 +36,46 @@ mydb.create_tables([TimelinePost])
 @app.route("/")
 def index():
     return render_template("main.j2",
-                           title="Bobo the Baboon",
-                           name="Bobo",
-                           hobbies="Working out and Gaming",
+                           title="Shawn's portfolio",
+                           name="Shawn",
                            url=os.getenv("URL"),
                            experiences=[
                                {
-                                   "name": "Meta",
-                                   "role": "Production Engineer",
-                                   "date": "XX 2021 - XX 2022"
+                                   "name": "MLH",
+                                   "role": "Production Engineer Fellow",
+                                   "date": "May 2022 - August 2022"
                                },
                                {
-                                   "name": "Google",
-                                   "role": "Software Engineer",
-                                   "date": "XX 2020 - XX 2021"
+                                   "name": "Epson Canada",
+                                   "role": "Machine Learning Intern",
+                                   "date": "May 2022 - August 2022"
                                },
                                {
-                                   "name": "Amazon",
-                                   "role": "Systems Development Engineer",
-                                   "date": "XX 2019 - XX 2020"
+                                   "name": "Huawei Technologies Canada Co., Ltd.",
+                                   "role": "Machine Learning for Integrated Circuit Design Intern",
+                                   "date": "May 2021 - April 2022"
+                               },
+                               {
+                                   "name": "A.U.G. Signals Ltd.",
+                                   "role": "Image Processing Intern",
+                                   "date": "May 2020 - August 2020"
                                },
                            ],
                            educations=[{
-                               "name": "Yale University",
-                               "location": "New Haven, CT"
+                               "name": "University of Toronto",
+                               "location": "Toronto, ON",
+                               "description": "2018-2023, BASc. in Engineering Science, Machine Intelligence",
                            }, {
-                               "name": "Harvard University",
-                               "location": "Cambridge, MA"
-                           }, {
-                               "name": "Stanford University",
-                               "location": "Stanford, CA"
-                           }])
+                               "name": "The Woodlands Secondary School",
+                               "location": "Mississauga, ON",
+                               "description": "2014-2018",
+                           },])
 
 
 @app.route("/hobbies/")
 def hobbies_and_map():
     # creating a map in the view
-    title = "Bobo's Hobbies"
+    title = "Shawn's Hobbies"
     bobomap = Map(
         identifier="bobomap",
         lat=9.1304,
@@ -123,8 +126,12 @@ def hobbies_and_map():
             "img": "./img/game.jpg"
         },
         {
-            "name": "Working Out",
-            "img": "./img/gym.jpg"
+            "name": "BJJ",
+            "img": "./img/bjj.jpg"
+        },
+        {
+            "name": "Cello",
+            "img": "./img/cello.jpg"
         },
     ]
 
@@ -142,16 +149,15 @@ def animation():
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-    print(request.form)
 
-    if 'name' not in request.form or 'name' = "":
-        return "Invalid name", 400
-
-    if 'email' not in request.form or 'email' == "" or '@' not in request.form['email']:
+    keys = ['name', 'email', 'content']
+    for key in keys:
+        if key not in request.form or request.form[key] == "":
+            return "Invalid {}".format(key), 400
+    if 'email' in request.form and '@' not in request.form['email']:
         return "Invalid email", 400
-
-    if 'content' not in request.form or 'content' == "":
-        return "Empty content", 400
+    if 'name' not in request.form:
+        return "Invalid name", 400
 
     name = request.form['name']
     email = request.form['email']

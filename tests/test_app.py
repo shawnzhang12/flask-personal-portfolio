@@ -13,10 +13,9 @@ class AppTestCase(unittest.TestCase):
 		response = self.client.get("/")
 		assert response.status_code == 200
 		html = response.get_data(as_text=True)
-		assert "<title>MLH Fellow</title>" in html
+		assert "<title>Shawn's portfolio</title>" in html
 		# Add more tests relating to home page
 		assert "Education" in html
-		assert "<img" in html
 
 	def test_timeline(self):
 		response = self.client.get("/api/timeline_post")
@@ -50,7 +49,7 @@ class AppTestCase(unittest.TestCase):
 		assert "Invalid name" in html
 
 		response = self.client.post("/api/timeline_post", data={"name": "John Doe", "email": "john@example.com", "content": ""})
-		assert response.status.code == 400
+		assert response.status_code == 400
 		html = response.get_data(as_text=True)
 		assert "Invalid content" in html
 

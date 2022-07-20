@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='/styles/main.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='/styles/styles.css') }}" />
+
     {% endblock head %}
     {% block extra_head %}
     {% endblock extra_head %}
@@ -42,9 +43,10 @@
         </div>
     </nav>
 
+    <div id="particles-js"></div>
     {% block content %}
     {% endblock content %}
-
+    
     <script src="{{ url_for("static", filename="nav.js")}}"></script>
 
     {% block script %}

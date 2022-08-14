@@ -17,5 +17,5 @@ if [[ $GET_RESPONSE -eq 1 ]]
 then
     echo "Found PUT request using GET."
 else
-    echo " Failed to find PUT request using GET."
+    echo " Failed finding PUT request using GET."
 fi

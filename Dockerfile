@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs12
+FROM nikolaik/python-nodejs:python3.10-nodejs12-slim
 
 WORKDIR /flask-personal-portfolio
 
